@@ -18,7 +18,7 @@ void row_sum(int ** m, unsigned rows, unsigned cols)
 
 Сигнатура функции суммирования:
 ```cpp
-int row_sum(int ** m, unsigned rows, unsigned cols)
+int col_sum(int ** m, unsigned rows, unsigned cols)
 { … }
 ```
 
