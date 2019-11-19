@@ -9,7 +9,5 @@ void row_sum(int** m, unsigned rows, unsigned cols)
     {
       sum += m[i][j];
     }
-    // so we return nothing and row sum is defined, so we nullify the sum
-    sum = 0;
   }
 }

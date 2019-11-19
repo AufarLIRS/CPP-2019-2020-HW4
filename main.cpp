@@ -28,6 +28,9 @@ int main()
   free_array2d(m);
 
   cout << endl;
+
+  if (Rational(2, 2) + 2 == 3)
+    cout << "Check Paseed!!!" << endl;
   auto rat = Rational(1, 4);
   auto sum = rat + Rational(1, 4);
   if (sum == Rational(1, 2))

@@ -4,16 +4,13 @@
 
 Rational::operator double() const
 {
-  if (isnan_)
-    return double(NAN);
   return double(numerator_) / denominator_;
 }
 
 Rational::Rational(int numerator, int denominator)
 {
-  isnan_ = false;
   if (denominator == 0)
-    isnan_ = true;
+    throw std::invalid_argument("Nan is unavaliable");
 
   if (denominator != 0 && numerator != 0)
   {
@@ -36,17 +33,12 @@ Rational::Rational(int numerator, int denominator)
   denominator_ = denominator;
 }
 
-bool Rational::IsNan() const
-{
-  return isnan_;
-}
-
-int Rational::Numerator() const
+int Rational::getNumerator() const
 {
   return numerator_;
 }
 
-int Rational::Denominator() const
+int Rational::getDenominator() const
 {
   return denominator_;
 }
@@ -91,50 +83,29 @@ Rational Rational::operator--(int)
 
 Rational operator+(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    return Rational(0, 0);
-  return Rational(p1.Numerator() + p2.Numerator(), p1.Denominator());
+  return Rational(p1.getNumerator() * p2.getDenominator() + p2.getNumerator() * p1.getDenominator(),
+                  p1.getDenominator() * p2.getDenominator());
 }
 
 Rational operator-(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    return Rational(0, 0);
-
-  int mul1 = 1;
-  int mul2 = 1;
-
-  if (p1.Denominator() > p2.Denominator())
-  {
-    mul2 = p1.Denominator() / p2.Denominator();
-  }
-
-  if (p1.Denominator() < p2.Denominator())
-  {
-    mul1 = p2.Denominator() / p1.Denominator();
-  }
-  return Rational(p1.Numerator() * mul1 - p2.Numerator() * mul2, p1.Denominator() * mul1);
+  return Rational(p1.getNumerator() * p2.getDenominator() - p2.getNumerator() * p1.getDenominator(),
+                  p1.getDenominator() * p2.getDenominator());
 }
 
 Rational operator*(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    return Rational(0, 0);
-  return Rational(p1.Numerator() * p2.Numerator(), p1.Denominator() * p2.Denominator());
+  return Rational(p1.getNumerator() * p2.getNumerator(), p1.getDenominator() * p2.getDenominator());
 }
 
 Rational operator/(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    return Rational(0, 0);
-  return Rational(p1.Numerator() * p2.Denominator(), p1.Denominator() * p2.Numerator());
+  return Rational(p1.getNumerator() * p2.getDenominator(), p1.getDenominator() * p2.getNumerator());
 }
 
 bool operator>(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    throw std::invalid_argument("Cannot compare with Nan");
-  return p1.Numerator() * p2.Denominator() > p2.Numerator() * p1.Denominator();
+  return p1.getNumerator() * p2.getDenominator() > p2.getNumerator() * p1.getDenominator();
 }
 
 bool operator<(Rational const& p1, Rational const& p2)
@@ -154,9 +125,7 @@ bool operator>=(Rational const& p1, Rational const& p2)
 
 bool operator==(Rational const& p1, Rational const& p2)
 {
-  if (p1.IsNan() || p2.IsNan())
-    throw std::invalid_argument("Cannot compare with Nan");
-  return p1.Numerator() == p2.Numerator() && p1.Denominator() == p2.Denominator();
+  return p1.getNumerator() == p2.getNumerator() && p1.getDenominator() == p2.getDenominator();
 }
 
 bool operator!=(Rational const& p1, Rational const& p2)

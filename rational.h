@@ -5,17 +5,15 @@ class Rational
 {
   int numerator_;
   int denominator_;
-  bool isnan_;
 
 public:
   operator double() const;
   // to reduce amount of override operations explicit constructor is used
   explicit Rational(int numerator, int denominator = 1);
-  bool IsNan() const;
 
-  int Numerator() const;
+  int getNumerator() const;
 
-  int Denominator() const;
+  int getDenominator() const;
 
   static int FindGCD(int a, int b);
 

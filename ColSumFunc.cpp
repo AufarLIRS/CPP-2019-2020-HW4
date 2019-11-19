@@ -1,9 +1,9 @@
 #include "SumFunc.h"
-#include <climits>
+#include <limits>
 
 int col_sum(int** m, unsigned rows, unsigned cols)
 {
-  int maxsum = INT_MIN;
+  int maxsum = std::numeric_limits<int>::min();
   for (unsigned i = 0; i < cols; i++)
   {
     int sum = 0;
@@ -13,7 +13,6 @@ int col_sum(int** m, unsigned rows, unsigned cols)
     }
     if (sum > maxsum)
       maxsum = sum;
-    sum = 0;
   }
   return maxsum;
 }
