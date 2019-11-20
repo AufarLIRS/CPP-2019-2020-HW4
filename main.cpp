@@ -29,18 +29,21 @@ int main()
 
   cout << endl;
 
-  if (Rational(2, 2) + 2 == 3)
-    cout << "Check Paseed!!!" << endl;
+  if (Rational(1, 3) + Rational(2, 3) == 1)
+    cout << "Check Passed!!!" << endl;
+  if (Rational(4, 8) - Rational(1, 4) == Rational(1, 4))
+    cout << "Check Passed!!!" << endl;
   auto rat = Rational(1, 4);
   auto sum = rat + Rational(1, 4);
+
   if (sum == Rational(1, 2))
-    cout << "Check Paseed!!!" << endl;
+    cout << "Check Passed!!!" << endl;
   if (Rational(1, 2) > 0.1)
-    cout << "Check Paseed!!!" << endl;
+    cout << "Check Passed!!!" << endl;
   if (Rational(1, 2) < 3)
-    cout << "Check Paseed!!!" << endl;
+    cout << "Check Passed!!!" << endl;
   if (Rational(1, 2) + 1.5 == 2.0)
-    cout << "Check Paseed!!!" << endl;
+    cout << "Check Passed!!!" << endl;
   cout << "That's enough";
   return 0;
 }
