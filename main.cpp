@@ -6,9 +6,9 @@
 #define SOME_VALUE j+i
 using namespace std;
 
-
 int main()
-{ /*
+{
+
     int** m;
     unsigned rows , cols;
     cin >> rows >> cols;
@@ -32,17 +32,17 @@ int main()
 
     row_sum(m, rows, cols);
 
-    cout << col_sum(m, rows, cols) << endl;*/
-    cout << 1;
+    cout << endl <<col_sum(m, rows, cols) << endl;
+
+    cout << "1a";
+
     Rational a(1, 2);
     cout << 2;
     double d = 0.5;
     int c = 1;
     Rational b(d);
     Rational e(c);
-
     cout << (a < b) << " "<< (a > c);
-
 
     return 0;
 }
