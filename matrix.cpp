@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-void row_sum(int** m, unsigned rows, unsigned cols)
+void rowSum(int** m, unsigned rows, unsigned cols)
 {
   for (unsigned i = 0; i < rows; i++)
   {
@@ -14,9 +14,9 @@ void row_sum(int** m, unsigned rows, unsigned cols)
   }
 }
 
-int col_sum(int** m, unsigned rows, unsigned cols)
+int colsSum(int** m, unsigned rows, unsigned cols)
 {
-  int max = INT_MIN;
+  int max = std::numeric_limits<int>::min();
   for (unsigned i = 0; i < cols; i++)
   {
     int s = 0;
@@ -32,7 +32,7 @@ int col_sum(int** m, unsigned rows, unsigned cols)
   return max;
 }
 
-void print_matrix(int** m, unsigned rows, unsigned cols)
+void printMatrix(int** m, unsigned rows, unsigned cols)
 {
   for (unsigned i = 0; i < rows; i++)
   {
@@ -44,7 +44,7 @@ void print_matrix(int** m, unsigned rows, unsigned cols)
   }
 }
 
-int** create_matrix(unsigned rows, unsigned cols)
+int** createMatrix(unsigned rows, unsigned cols)
 {
   int** matrix = new int*[rows];
   for (unsigned i = 0; i != rows; ++i)
@@ -54,7 +54,7 @@ int** create_matrix(unsigned rows, unsigned cols)
   return matrix;
 }
 
-void delete_matrix(int** m, unsigned rows, unsigned cols)
+void deleteMatrix(int** m, unsigned rows, unsigned cols)
 {
   for (unsigned i = 0; i != rows; ++i)
   {

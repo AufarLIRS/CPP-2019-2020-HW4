@@ -2,7 +2,7 @@
 
 Rational::Rational(int numerator, int denominator = 1)
 {
-  auto gcd = get_gcd(numerator, denominator);
+  auto gcd = getGCD(numerator, denominator);
 
   this->numerator_ = numerator / gcd;
   this->denominator_ = denominator / gcd;
@@ -13,17 +13,17 @@ Rational::operator double() const
   return double(numerator_) / denominator_;
 }
 
-int Rational::get_numerator() const
+int Rational::getNumerator() const
 {
   return numerator_;
 }
 
-int Rational::get_denominator() const
+int Rational::getDenominator() const
 {
   return denominator_;
 }
 
-int Rational::get_gcd(int x, int y)
+int Rational::getGCD(int x, int y)
 {
   int t;
   while (y != 0)
@@ -37,29 +37,29 @@ int Rational::get_gcd(int x, int y)
 
 void Rational::print(Rational r)
 {
-  std::cout << r.get_numerator() << "/" << r.get_denominator();
+  std::cout << r.getNumerator() << "/" << r.getDenominator();
 }
 
 Rational operator+(Rational const& r1, Rational const& r2)
 {
-  return Rational(r1.get_numerator() * r2.get_denominator() + r2.get_numerator() * r1.get_denominator(),
-                  r1.get_denominator() * r2.get_denominator());
+  return Rational(r1.getNumerator() * r2.getDenominator() + r2.getNumerator() * r1.getDenominator(),
+                  r1.getDenominator() * r2.getDenominator());
 }
 
 Rational operator-(Rational const& r1, Rational const& r2)
 {
-  return Rational(r1.get_numerator() * r2.get_denominator() - r2.get_numerator() * r1.get_denominator(),
-                  r1.get_denominator() * r2.get_denominator());
+  return Rational(r1.getNumerator() * r2.getDenominator() - r2.getNumerator() * r1.getDenominator(),
+                  r1.getDenominator() * r2.getDenominator());
 }
 
 Rational operator*(Rational const& r1, Rational const& r2)
 {
-  return Rational(r1.get_numerator() * r2.get_numerator(), r1.get_denominator() * r2.get_denominator());
+  return Rational(r1.getNumerator() * r2.getNumerator(), r1.getDenominator() * r2.getDenominator());
 }
 
 Rational operator/(Rational const& r1, Rational const& r2)
 {
-  return Rational(r1.get_numerator() * r2.get_denominator(), r1.get_denominator() * r2.get_numerator());
+  return Rational(r1.getNumerator() * r2.getDenominator(), r1.getDenominator() * r2.getNumerator());
 }
 
 Rational& Rational::operator++(int)
@@ -88,7 +88,7 @@ Rational& Rational::operator--()
 
 bool operator>(Rational const& r1, Rational const& r2)
 {
-  return r1.get_numerator() * r2.get_denominator() > r1.get_denominator() * r2.get_numerator();
+  return r1.getNumerator() * r2.getDenominator() > r1.getDenominator() * r2.getNumerator();
 }
 
 bool operator<(Rational const& r1, Rational const& r2)
@@ -98,7 +98,7 @@ bool operator<(Rational const& r1, Rational const& r2)
 
 bool operator==(Rational const& r1, Rational const& r2)
 {
-  return (r1.get_numerator() == r2.get_numerator() && r1.get_denominator() == r2.get_denominator());
+  return (r1.getNumerator() == r2.getNumerator() && r1.getDenominator() == r2.getDenominator());
 }
 
 bool operator!=(Rational const& r1, Rational const& r2)

@@ -9,7 +9,7 @@ int main()
 {
   srand((unsigned int)time(nullptr));
 
-  int** matrix = create_matrix(4, 3);
+  int** matrix = createMatrix(4, 3);
   for (unsigned i = 0; i < 4; i++)
   {
     for (unsigned j = 0; j < 3; j++)
@@ -18,13 +18,13 @@ int main()
     }
   }
 
-  print_matrix(matrix, 4, 3);
+  printMatrix(matrix, 4, 3);
 
   std::cout << endl;
-  row_sum(matrix, 4, 3);
+  rowSum(matrix, 4, 3);
   std::cout << endl;
 
-  int max = col_sum(matrix, 4, 3);
+  int max = colsSum(matrix, 4, 3);
   std::cout << "Max column sum = " << max;
   std::cout << endl;
   std::cout << endl;

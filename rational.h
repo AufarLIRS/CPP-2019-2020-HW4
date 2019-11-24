@@ -11,8 +11,8 @@ public:
   operator double() const;
   Rational(int numerator, int denominator);
 
-  int get_numerator() const;
-  int get_denominator() const;
+  int getNumerator() const;
+  int getDenominator() const;
 
   Rational& operator++(int);
   Rational& operator--(int);
@@ -20,7 +20,7 @@ public:
   Rational& operator++();
   Rational& operator--();
 
-  static int get_gcd(int x, int y);
+  static int getGCD(int x, int y);
 
   static void print(Rational r);
 };

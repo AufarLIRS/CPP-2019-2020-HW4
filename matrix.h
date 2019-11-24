@@ -1,12 +1,12 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <iostream>
-#include "limits.h"
+#include <limits>
 
-void row_sum(int** m, unsigned rows, unsigned cols);
-int col_sum(int** m, unsigned rows, unsigned cols);
-void print_matrix(int** m, unsigned rows, unsigned cols);
-int** create_matrix(unsigned rows, unsigned cols);
-void delete_matrix(int** m, unsigned rows, unsigned cols);
+void rowSum(int** m, unsigned rows, unsigned cols);
+int colsSum(int** m, unsigned rows, unsigned cols);
+void printMatrix(int** m, unsigned rows, unsigned cols);
+int** createMatrix(unsigned rows, unsigned cols);
+void deleteMatrix(int** m, unsigned rows, unsigned cols);
 
 #endif  // MATRIX_H
