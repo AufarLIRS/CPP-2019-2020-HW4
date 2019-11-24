@@ -2,6 +2,7 @@
 #include "Task_row_sum.h"
 #include "Task_row_col.h"
 #include "Task_Show_Martix.h"
+#include "Rational.h"
 using namespace std;
 
 int main()
@@ -17,10 +18,34 @@ int main()
       m[i][j] = 1;
 
   show_matrix(m, 5, 4);
-  cout << '\n';
   row_sum(m, 5, 4);
-  cout << '\n';
-  cout << row_col(m, 5, 4) << '\n';
+  cout << "result: " << row_col(m, 5, 4) << std::endl;
+  cout << endl;
+  cout << endl;
+
+  Rational x(5, 6);
+  Rational y(3, 4);
+  cout << "Summarising: " << endl;
+  cout << x + y << endl;
+  cout << endl;
+
+  Rational q(5, 6);
+  Rational w(5, 6);
+  cout << "Comparing two equal nums: " << endl;
+  cout << (q == w) << endl;
+  cout << endl;
+
+  Rational p(7, 6);
+  Rational l(5, 2);
+  cout << "Comparing two unequal nums: " << endl;
+  cout << (p > l) << endl;
+  cout << endl;
+
+  Rational z(12, 6);
+  Rational c(3, 3);
+  cout << "Substracting: " << endl;
+  cout << z - c << endl;
+  cout << endl;
 
   return 0;
 }

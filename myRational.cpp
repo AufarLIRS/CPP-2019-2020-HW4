@@ -3,7 +3,6 @@
 Rational::Rational(int numerator, int denominator)
 {
   int gcd = GCD(numerator, denominator);
-
   this->numerator_ = numerator / gcd;
   this->denominator_ = denominator / gcd;
 }
@@ -20,22 +19,22 @@ int Rational::GCD(int first, int second)
   return first;
 }
 
-int Rational::get_numerator() const
+int Rational::getNum() const
 {
   return numerator_;
 }
 
-int Rational::get_denominator() const
+int Rational::getDen() const
 {
   return denominator_;
 }
 
-bool operator>(Rational first, Rational second)
+bool operator>(Rational const& first, Rational const& second)
 {
-  return first.get_numerator() * second.get_denominator() > first.get_denominator() * second.get_numerator();
+  return first.getNum() * second.getDen() > first.getDen() * second.getNum();
 }
 
-bool operator<(Rational first, Rational second)
+bool operator<(Rational const& first, Rational const& second)
 {
   return !(first > second);
 }
@@ -52,43 +51,43 @@ Rational& Rational::operator--()
   return *this;
 }
 
-Rational operator+(Rational first, Rational second)
+Rational operator+(Rational const& first, Rational const& second)
 {
-  return Rational(first.get_numerator() * second.get_denominator() + second.get_numerator() * first.get_denominator(),
-                  first.get_denominator() * second.get_denominator());
+  return Rational(first.getNum() * second.getDen() + second.getNum() * first.getDen(),
+                  first.getDen() * second.getDen());
 }
 
-Rational operator-(Rational first, Rational second)
+Rational operator-(Rational const& first, Rational const& second)
 {
-  return Rational(first.get_numerator() * second.get_denominator() - second.get_numerator() * first.get_denominator(),
-                  first.get_denominator() * second.get_denominator());
+  return Rational(first.getNum() * second.getDen() - second.getNum() * first.getDen(),
+                  first.getDen() * second.getDen());
 }
 
-Rational operator*(Rational first, Rational second)
+Rational operator*(Rational const& first, Rational const& second)
 {
-  return Rational(first.get_numerator() * second.get_numerator(), first.get_denominator() * second.get_denominator());
+  return Rational(first.getNum() * second.getNum(), first.getDen() * second.getDen());
 }
 
-Rational operator/(Rational first, Rational second)
+Rational operator/(Rational const& first, Rational const& second)
 {
-  return Rational(first.get_numerator() * second.get_denominator(), first.get_denominator() * second.get_numerator());
+  return Rational(first.getNum() * second.getDen(), first.getDen() * second.getNum());
 }
 
-bool operator==(Rational first, Rational second)
+bool operator==(Rational const& first, Rational const& second)
 {
-  return (first.get_numerator() == second.get_numerator() && first.get_denominator() == second.get_denominator());
+  return (first.getNum() == second.getNum() && first.getDen() == second.getDen());
 }
 
-bool operator!=(Rational first, Rational second)
+bool operator!=(Rational const& first, Rational const& second)
 {
   return !(first == second);
 }
 
-bool operator<=(Rational first, Rational second)
+bool operator<=(Rational const& first, Rational const& second)
 {
   return first == second || first < second;
 }
-bool operator>=(Rational first, Rational second)
+bool operator>=(Rational const& first, Rational const& second)
 {
   return first == second || first > second;
 }

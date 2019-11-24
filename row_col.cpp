@@ -4,8 +4,8 @@
 
 int row_col(int** m, unsigned rows, unsigned cols)
 {
-  int maxSum = INT_MIN;
-  int newSum = INT_MIN;
+  int maxSum = std::numeric_limits<int>::min();
+  int newSum = 0;
   for (unsigned j = 0; j < rows; j++)
   {
     for (unsigned i = 0; i < cols; i++)
