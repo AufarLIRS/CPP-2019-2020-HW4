@@ -47,5 +47,17 @@ int main()
   cout << z - c << endl;
   cout << endl;
 
+  double i = 0.6;
+  Rational u(3, 3);
+  cout << "Summarising Double and Rational: " << endl;
+  cout << i + u << endl;
+  cout << endl;
+
+  double f = 4.6;
+  Rational g(2, 3);
+  cout << "Multiplying Double and Rational: " << endl;
+  cout << f * g << endl;
+  cout << endl;
+
   return 0;
 }
