@@ -13,8 +13,9 @@ private:
 
 public:
   Rational(int numerator_, int denominator_);
-  int GetNumerator() const;
-  int GetDenominator() const;
+  int getNumerator() const;
+  int getDenominator() const;
+  int gcd(int num, int den);
   Rational& operator++();
   Rational operator++(int);
   Rational& operator--();
