@@ -1,6 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <iostream>
+#include "limits.h"
 
 void row_sum(int** m, unsigned rows, unsigned cols);
 int col_sum(int** m, unsigned rows, unsigned cols);

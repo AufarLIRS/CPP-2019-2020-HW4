@@ -16,7 +16,7 @@ void row_sum(int** m, unsigned rows, unsigned cols)
 
 int col_sum(int** m, unsigned rows, unsigned cols)
 {
-  int max = m[0][0];
+  int max = INT_MIN;
   for (unsigned i = 0; i < cols; i++)
   {
     int s = 0;
@@ -40,7 +40,7 @@ void print_matrix(int** m, unsigned rows, unsigned cols)
     {
       std::cout << m[i][j] << " ";
     }
-    std::cout << '\n';
+    std::cout << std::endl;
   }
 }
 

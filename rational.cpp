@@ -1,6 +1,6 @@
 #include "rational.h"
 
-rational::rational(int numerator, int denominator = 1)
+Rational::Rational(int numerator, int denominator = 1)
 {
   auto gcd = get_gcd(numerator, denominator);
 
@@ -8,17 +8,22 @@ rational::rational(int numerator, int denominator = 1)
   this->denominator_ = denominator / gcd;
 }
 
-int rational::get_numerator() const
+Rational::operator double() const
+{
+  return double(numerator_) / denominator_;
+}
+
+int Rational::get_numerator() const
 {
   return numerator_;
 }
 
-int rational::get_denominator() const
+int Rational::get_denominator() const
 {
   return denominator_;
 }
 
-int rational::get_gcd(int x, int y)
+int Rational::get_gcd(int x, int y)
 {
   int t;
   while (y != 0)
@@ -30,82 +35,82 @@ int rational::get_gcd(int x, int y)
   return x;
 }
 
-void rational::print(rational r)
+void Rational::print(Rational r)
 {
   std::cout << r.get_numerator() << "/" << r.get_denominator();
 }
 
-rational operator+(rational const& r1, rational const& r2)
+Rational operator+(Rational const& r1, Rational const& r2)
 {
-  return rational(r1.get_numerator() * r2.get_denominator() + r2.get_numerator() * r1.get_denominator(),
+  return Rational(r1.get_numerator() * r2.get_denominator() + r2.get_numerator() * r1.get_denominator(),
                   r1.get_denominator() * r2.get_denominator());
 }
 
-rational operator-(rational const& r1, rational const& r2)
+Rational operator-(Rational const& r1, Rational const& r2)
 {
-  return rational(r1.get_numerator() * r2.get_denominator() - r2.get_numerator() * r1.get_denominator(),
+  return Rational(r1.get_numerator() * r2.get_denominator() - r2.get_numerator() * r1.get_denominator(),
                   r1.get_denominator() * r2.get_denominator());
 }
 
-rational operator*(rational const& r1, rational const& r2)
+Rational operator*(Rational const& r1, Rational const& r2)
 {
-  return rational(r1.get_numerator() * r2.get_numerator(), r1.get_denominator() * r2.get_denominator());
+  return Rational(r1.get_numerator() * r2.get_numerator(), r1.get_denominator() * r2.get_denominator());
 }
 
-rational operator/(rational const& r1, rational const& r2)
+Rational operator/(Rational const& r1, Rational const& r2)
 {
-  return rational(r1.get_numerator() * r2.get_denominator(), r1.get_denominator() * r2.get_numerator());
+  return Rational(r1.get_numerator() * r2.get_denominator(), r1.get_denominator() * r2.get_numerator());
 }
 
-rational& rational::operator++(int)
+Rational& Rational::operator++(int)
 {
   numerator_ += denominator_;
   return *this;
 }
 
-rational& rational::operator++()
+Rational& Rational::operator++()
 {
   numerator_ += denominator_;
   return *this;
 }
 
-rational& rational::operator--(int)
+Rational& Rational::operator--(int)
 {
   numerator_ -= denominator_;
   return *this;
 }
 
-rational& rational::operator--()
+Rational& Rational::operator--()
 {
   numerator_ -= denominator_;
   return *this;
 }
 
-bool operator>(rational const& r1, rational const& r2)
+bool operator>(Rational const& r1, Rational const& r2)
 {
   return r1.get_numerator() * r2.get_denominator() > r1.get_denominator() * r2.get_numerator();
 }
 
-bool operator<(rational const& r1, rational const& r2)
+bool operator<(Rational const& r1, Rational const& r2)
 {
   return !(r1 > r2);
 }
 
-bool operator==(rational const& r1, rational const& r2)
+bool operator==(Rational const& r1, Rational const& r2)
 {
   return (r1.get_numerator() == r2.get_numerator() && r1.get_denominator() == r2.get_denominator());
 }
 
-bool operator!=(rational const& r1, rational const& r2)
+bool operator!=(Rational const& r1, Rational const& r2)
 {
   return !(r1 == r2);
 }
 
-bool operator<=(rational const& r1, rational const& r2)
+bool operator<=(Rational const& r1, Rational const& r2)
 {
   return r1 == r2 || r1 < r2;
 }
-bool operator>=(rational const& r1, rational const& r2)
+bool operator>=(Rational const& r1, Rational const& r2)
 {
   return r1 == r2 || r1 > r2;
 }
