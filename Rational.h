@@ -8,8 +8,8 @@ class Rational
 
 public:
   Rational(int numerator, int denominator);
-  int getNum() const;
-  int getDen() const;
+  int getNumerator() const;
+  int getDenominator() const;
   int GCD(int first, int second);
   Rational& operator--();
   Rational& operator++();
