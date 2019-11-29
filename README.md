@@ -8,7 +8,7 @@ Repo for fourth homework on 2019/2020 C++ course
 
 Сигнатура функции суммирования:
 ```cpp
-void row_sum(int ** m, unsigned rows, unsigned cols)
+void rowSum(int ** array, unsigned rows_count, unsigned cols_count)
 { … }
 ```
 
@@ -18,7 +18,7 @@ void row_sum(int ** m, unsigned rows, unsigned cols)
 
 Сигнатура функции суммирования:
 ```cpp
-int col_sum(int ** m, unsigned rows, unsigned cols)
+int colSum(int ** array, unsigned rows_count, unsigned cols_count)
 { … }
 ```
 
