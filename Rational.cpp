@@ -96,8 +96,9 @@ Rational& Rational::operator++()
 }
 Rational Rational::operator++(int)
 {
-  this->nomin += this->denomin;
-  return *this;
+  Rational tmp(*this);
+  ++(*this);
+  return tmp;
 }
 
 /*Rational Rational::operator+(double b)
