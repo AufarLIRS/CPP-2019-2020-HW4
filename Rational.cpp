@@ -12,8 +12,9 @@ Rational::Rational(int a)
   this->denomin = 1;
 }
 
-Rational::Rational(double rational)
+Rational::Rational(const double rational_)
 {
+  double rational = rational_;
   int nom1 = (int)rational;
   rational = rational - nom1;
   int nom2 = 0, denomin = 1;
@@ -56,34 +57,34 @@ void Rational::normalize()
   }
 }
 
-int Rational::getNominator()
+int Rational::getNominator() const
 {
   return nomin;
 }
 
-int Rational::getDenominator()
+int Rational::getDenominator() const
 {
   return denomin;
 }
 
-Rational Rational::operator+(Rational& b)
+Rational Rational::operator+(const Rational& b)
 {
   return Rational(this->getNominator() * b.getDenominator() + b.getNominator() * this->getDenominator(),
                   this->getDenominator() * b.getDenominator());
 }
 
-Rational Rational::operator-(Rational& b)
+Rational Rational::operator-(const Rational& b)
 {
   return Rational(this->getNominator() * b.getDenominator() - b.getNominator() * this->getDenominator(),
                   this->getDenominator() * b.getDenominator());
 }
 
-Rational Rational::operator*(Rational& b)
+Rational Rational::operator*(const Rational& b)
 {
   return Rational(this->getNominator() * b.getNominator(), this->getDenominator() * b.getDenominator());
 }
 
-Rational Rational::operator/(Rational& b)
+Rational Rational::operator/(const Rational& b)
 {
   return Rational(this->getNominator() * b.getDenominator(), this->getDenominator() * b.getNominator());
 }
@@ -99,7 +100,7 @@ Rational Rational::operator++(int)
   return *this;
 }
 
-Rational Rational::operator+(double b)
+/*Rational Rational::operator+(double b)
 {
   Rational d(b);
   return Rational(this->getNominator() * d.getDenominator() + d.getNominator() * this->getDenominator(),
@@ -123,29 +124,29 @@ Rational Rational::operator/(double b)
 {
   Rational d(b);
   return Rational(this->getNominator() * d.getDenominator(), this->getDenominator() * d.getNominator());
-}
+}*/
 
-bool Rational::operator<(Rational a)
+bool Rational::operator<(const Rational a)
 {
   return *this - a < 0;
 }
-bool Rational::operator>(Rational a)
+bool Rational::operator>(const Rational a)
 {
   return *this - a > 0;
 }
-bool Rational::operator<=(Rational a)
+bool Rational::operator<=(const Rational a)
 {
   return *this - a <= 0;
 }
-bool Rational::operator>=(Rational a)
+bool Rational::operator>=(const Rational a)
 {
   return *this - a >= 0;
 }
-bool Rational::operator!=(Rational a)
+bool Rational::operator!=(const Rational a)
 {
   return *this - a != 0;
 }
-bool Rational::operator==(Rational a)
+bool Rational::operator==(const Rational a)
 {
   return *this - a == 0;
 }

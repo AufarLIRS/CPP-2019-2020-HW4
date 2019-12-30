@@ -35,7 +35,7 @@ int main()
 
   cout << endl << col_sum(m, rows, cols) << endl;
 
-  cout << "1a";
+  cout << "it still dose not print this, i have no idea why";
 
   Rational a(1, 2);
   cout << 2;
